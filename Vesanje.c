@@ -14,8 +14,8 @@ int main()
     do
     {
         provera(&brZivota, rec, pokusaj, vesanje);
-    } while (brZivota >= 0 && strcmp(rec, pokusaj));
-    if (brZivota < 0)
+    } while (brZivota > 0 && strcmp(rec, pokusaj));
+    if (brZivota == 0)
         printf("Zadata rec: %s\nVise srece drugi put!\n", rec);
     else
         printf("Cestitke, rec je pogodjena!\n");
@@ -48,7 +48,9 @@ void provera(int *brZivota, char *rec, char *pokusaj, char *vesanje)
         else if (i == strlen(rec) - 1 && !p)
         {
             *brZivota = *brZivota - 1;
-            switch (*brZivota)
+        }
+    }
+    switch (*brZivota)
             {
             case 7:
                 printf("%s", vesanje);
@@ -77,8 +79,6 @@ void provera(int *brZivota, char *rec, char *pokusaj, char *vesanje)
             default:
                 break;
             }
-        }
-    }
     printf("Preostalo zivota: %d\n", *brZivota);
     printf("%s", vesanje);
 }
